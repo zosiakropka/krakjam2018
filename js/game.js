@@ -35,6 +35,7 @@ var game = {
 
     // add our player entity in the entity pool
     me.pool.register("player1Entity", game.PlayerEntity);
+    me.pool.register("deathEntity", game.DeathEntity);
 
     me.input.bindKey(me.input.KEY.LEFT, 'left');
     me.input.bindKey(me.input.KEY.RIGHT, 'right');

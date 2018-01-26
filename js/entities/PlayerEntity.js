@@ -14,9 +14,12 @@ game.PlayerEntity = me.Entity.extend({
     this.body.setVelocity(3, 15);
     this.renderable.addAnimation('walk', [0, 1]);
     this.renderable.addAnimation('jump', [2, 3]);
-    this.renderable.addAnimation('stand', [4]);
+    this.renderable.addAnimation('stand', [4, 5]);
+    this.renderable.addAnimation('die', [6, 7]);
 
     this.renderable.setCurrentAnimation('stand');
+
+    this.dead = false;
   },
 
   /**
@@ -24,34 +27,42 @@ game.PlayerEntity = me.Entity.extend({
    */
   update: function(dt) {
 
-    if (me.input.isKeyPressed('left')) {
-      this.renderable.flipX(true);
-      this.body.vel.x -= this.body.accel.x * me.timer.tick;
-
-      if (!this.renderable.isCurrentAnimation('walk')) {
-        this.renderable.setCurrentAnimation('walk');
-      }
-    } else if (me.input.isKeyPressed('right')) {
-      this.renderable.flipX(false);
-      this.body.vel.x += this.body.accel.x * me.timer.tick;
-
-      if (!this.renderable.isCurrentAnimation('walk')) {
-        this.renderable.setCurrentAnimation('walk');
+    if (this.dead) {
+      if (!this.renderable.isCurrentAnimation('die')) {
+        this.renderable.setCurrentAnimation('die');
       }
     } else {
-      this.body.vel.x = 0;
-      this.renderable.setCurrentAnimation('stand');
-    }
+      if (me.input.isKeyPressed('left')) {
+        this.renderable.flipX(true);
+        this.body.vel.x -= this.body.accel.x * me.timer.tick;
 
-    if (me.input.isKeyPressed('jump')) {
-      if (!this.body.jumping && !this.body.falling) {
-        this.body.vel.y = -this.body.maxVel.y * me.timer.tick;
-        this.body.jumping = true;
+        if (!this.renderable.isCurrentAnimation('walk')) {
+          this.renderable.setCurrentAnimation('walk');
+        }
+      } else if (me.input.isKeyPressed('right')) {
+        this.renderable.flipX(false);
+        this.body.vel.x += this.body.accel.x * me.timer.tick;
+
+        if (!this.renderable.isCurrentAnimation('walk')) {
+          this.renderable.setCurrentAnimation('walk');
+        }
+      } else {
+        this.body.vel.x = 0;
+        if (!this.renderable.isCurrentAnimation('stand')) {
+          this.renderable.setCurrentAnimation('stand');
+        }
       }
 
-      if (this.body.jumping) {
-        if (!this.renderable.isCurrentAnimation('jump')) {
-          this.renderable.setCurrentAnimation('jump');
+      if (me.input.isKeyPressed('jump')) {
+        if (!this.body.jumping && !this.body.falling) {
+          this.body.vel.y = -this.body.maxVel.y * me.timer.tick;
+          this.body.jumping = true;
+        }
+
+        if (this.body.jumping) {
+          if (!this.renderable.isCurrentAnimation('jump')) {
+            this.renderable.setCurrentAnimation('jump');
+          }
         }
       }
     }
@@ -86,6 +97,16 @@ game.PlayerEntity = me.Entity.extend({
           }
 
           return false;
+        }
+        break;
+      case me.collision.types.ENEMY_OBJECT:
+        if (other.type === 'death' && !this.dead) {
+          this.dead = true;
+          me.timer.setTimeout(() => {
+            this.body.setCollisionMask(me.collision.types.NO_OBJECT);
+            me.game.world.removeChild(this);
+            me.levelDirector.loadLevel(me.levelDirector.getCurrentLevelId());
+          }, 500);
         }
         break;
     }

@@ -72,23 +72,26 @@ game.PlayerEntity = me.Entity.extend({
    * (called when colliding with other objects)
    */
   onCollision: function(response, other) {
-   switch (response.b.body.collisionType) {
-       case me.collision.types.WORLD_SHAPE:
-           if (other.type === 'platform') {
-               if (
-                   this.body.falling &&
-                   !me.input.isKeyPressed('down') &&
-                   response.overlapV.y > 0 &&
-                   (~~this.body.vel.y >= ~~response.overlapV.y)) {
+    switch (response.b.body.collisionType) {
+      case me.collision.types.WORLD_SHAPE:
+        if (other.type === 'platform') {
+          if (
+            this.body.falling &&
+            !me.input.isKeyPressed('down') &&
+            response.overlapV.y > 0 &&
+            (~~this.body.vel.y >= ~~response.overlapV.y)) {
 
-                   response.overlapV.x = 0;
-                   return true;
-               }
+            response.overlapV.x = 0;
+            return true;
+          }
 
-               return false;
-           }
-           break;
+          return false;
+        }
+        break;
     }
+
+
+
     // Make all other objects solid
     return true;
   }

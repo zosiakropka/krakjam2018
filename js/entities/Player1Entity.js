@@ -9,16 +9,52 @@ game.Player1Entity = me.Entity.extend({
   init: function(x, y, settings) {
     // call the constructor
     this._super(me.Entity, 'init', [x, y, settings]);
-    this.renderable.addAnimation('walkRight', [0]);
-    this.renderable.addAnimation('jumpRight', [2]);
+    me.game.viewport.follow(this.pos, me.game.viewport.AXIS.BOTH);
+    this.alwaysUpdate = true;
+    this.body.setVelocity(3, 15);
+    this.renderable.addAnimation('walk', [0, 1]);
+    this.renderable.addAnimation('jump', [2, 3]);
+    this.renderable.addAnimation('stand', [4]);
 
-    this.renderable.setCurrentAnimation('walkRight');
+    this.renderable.setCurrentAnimation('stand');
   },
 
   /**
    * update the entity
    */
   update: function(dt) {
+
+    if (me.input.isKeyPressed('left')) {
+      this.renderable.flipX(true);
+      this.body.vel.x -= this.body.accel.x * me.timer.tick;
+
+      if (!this.renderable.isCurrentAnimation('walk')) {
+        this.renderable.setCurrentAnimation('walk');
+      }
+    } else if (me.input.isKeyPressed('right')) {
+      this.renderable.flipX(false);
+      this.body.vel.x += this.body.accel.x * me.timer.tick;
+
+      if (!this.renderable.isCurrentAnimation('walk')) {
+        this.renderable.setCurrentAnimation('walk');
+      }
+    } else {
+      this.body.vel.x = 0;
+      this.renderable.setCurrentAnimation('stand');
+    }
+
+    if (me.input.isKeyPressed('jump')) {
+      if (!this.body.jumping && !this.body.falling) {
+        this.body.vel.y = -this.body.maxVel.y * me.timer.tick;
+        this.body.jumping = true;
+      }
+
+      if (this.body.jumping) {
+        if (!this.renderable.isCurrentAnimation('jump')) {
+          this.renderable.setCurrentAnimation('jump');
+        }
+      }
+    }
 
     // apply physics to the body (this moves the entity)
     this.body.update(dt);

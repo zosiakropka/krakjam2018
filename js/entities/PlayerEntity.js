@@ -20,6 +20,7 @@ game.PlayerEntity = me.Entity.extend({
     this.renderable.setCurrentAnimation('stand');
 
     this.dead = false;
+    this.multiJump = 1;
   },
 
   /**
@@ -54,16 +55,19 @@ game.PlayerEntity = me.Entity.extend({
       }
 
       if (me.input.isKeyPressed('jump')) {
-        if (!this.body.jumping && !this.body.falling) {
-          this.body.vel.y = -this.body.maxVel.y * me.timer.tick;
-          this.body.jumping = true;
-        }
+        this.body.vel.y += -(this.body.maxVel.y * this.multiJump++) * me.timer.tick
+        this.body.jumping = true;
 
         if (this.body.jumping) {
           if (!this.renderable.isCurrentAnimation('jump')) {
             this.renderable.setCurrentAnimation('jump');
           }
         }
+      }
+
+      var isMoving = this.body.jumping || this.body.falling;
+      if (!isMoving) {
+        this.multiJump = 1;
       }
     }
 

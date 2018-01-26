@@ -1,7 +1,7 @@
 /**
  * Player Entity
  */
-game.PlayerEntity = me.Entity.extend({
+game.Player1Entity = me.Entity.extend({
 
     /**
      * constructor
@@ -9,6 +9,10 @@ game.PlayerEntity = me.Entity.extend({
     init:function (x, y, settings) {
         // call the constructor
         this._super(me.Entity, 'init', [x, y , settings]);
+        this.renderable.addAnimation('walkRight', [0]);
+        this.renderable.addAnimation('jumpRight', [2]);
+
+        this.renderable.setCurrentAnimation('walkRight');
     },
 
     /**

@@ -31,7 +31,7 @@ var game = {
         me.state.set(me.state.PLAY, new game.PlayScreen());
 
         // add our player entity in the entity pool
-        me.pool.register("player1Entity", game.Player1Entity);
+        me.pool.register("player1Entity", game.PlayerEntity);
 
         me.input.bindKey(me.input.KEY.LEFT, 'left');
         me.input.bindKey(me.input.KEY.RIGHT, 'right');

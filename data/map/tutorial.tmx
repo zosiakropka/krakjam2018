@@ -49,7 +49,7 @@
   <object id="26" name="groundObstacleEntity" type="death" x="800" y="288" width="64" height="64">
    <properties>
     <property name="groundObstacleId" value="3"/>
-    <property name="image" value="ground_obstacle"/>
+    <property name="image" value="ground_obstacle_up"/>
    </properties>
   </object>
  </objectgroup>

@@ -108,9 +108,10 @@ game.PlayerEntity = me.Entity.extend({
         break;
       case me.collision.types.ENEMY_OBJECT:
         if (other.type === 'death' && !this.dead) {
-          this.dead = true;
-          me.timer.setTimeout(() => {
-            this.body.setCollisionMask(me.collision.types.NO_OBJECT);
+          var self = this;
+          self.dead = true;
+          me.timer.setTimeout(function() {
+            self.body.setCollisionMask(me.collision.types.NO_OBJECT);
             me.game.world.removeChild(this);
             me.levelDirector.loadLevel(me.levelDirector.getCurrentLevelId());
           }, 500);

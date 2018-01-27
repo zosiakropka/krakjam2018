@@ -113,7 +113,7 @@ game.PlayerEntity = me.Entity.extend({
           me.timer.setTimeout(function() {
             self.body.setCollisionMask(me.collision.types.NO_OBJECT);
             me.game.world.removeChild(self);
-            me.levelDirector.loadLevel(me.levelDirector.getCurrentLevelId());
+            me.levelDirector.reloadLevel();
           }, 500);
         }
         break;

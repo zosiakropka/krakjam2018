@@ -111,6 +111,9 @@ game.PlayerEntity = me.Entity.extend({
           var self = this;
           self.dead = true;
           me.timer.setTimeout(function() {
+            if (!self.body) {
+              return;
+            }
             self.body.setCollisionMask(me.collision.types.NO_OBJECT);
             me.game.world.removeChild(self);
             me.levelDirector.reloadLevel();

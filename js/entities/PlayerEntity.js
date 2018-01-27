@@ -7,8 +7,6 @@ game.PlayerEntity = me.Entity.extend({
    * constructor
    */
   init: function(x, y, settings) {
-    this.onDeath = this.onDeath.bind(this);
-    me.event.subscribe("stalosie", this.onDeath);
     // call the constructor
     this._super(me.Entity, 'init', [x, y, settings]);
     me.game.viewport.follow(this.pos, me.game.viewport.AXIS.BOTH);
@@ -124,12 +122,6 @@ game.PlayerEntity = me.Entity.extend({
     return false;
   },
 
-  onDeath: function() {
-    console.info(this);
-    console.info('stalo sie');
-  },
-
   onDestroyEvent: function() {
-    me.event.unsubscribe("stalosie", this.onDeath);
   }
 });

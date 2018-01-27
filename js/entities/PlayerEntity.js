@@ -110,6 +110,7 @@ game.PlayerEntity = me.Entity.extend({
         if (other.type === 'death' && !this.dead) {
           this.dead = true;
           me.timer.setTimeout(() => {
+            me.event.publish('deathCounter:increment');
             this.body.setCollisionMask(me.collision.types.NO_OBJECT);
             me.game.world.removeChild(this);
             me.levelDirector.loadLevel(me.levelDirector.getCurrentLevelId());

@@ -141,6 +141,12 @@ module.exports = function(grunt) {
         },{
           src: ['data/map/**/*.tmx', 'data/map/**/*.json'],
           type: 'tmx'
+        }, {
+          src: ["data/fnt/**/*.png"],
+          type:"image"
+        }, {
+          src: ["data/fnt/**/*.fnt"],
+          type: "binary"
         },{
           src: ['data/map/**/*.tsx'],
           type: 'tsx'

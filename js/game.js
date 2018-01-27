@@ -38,6 +38,7 @@ var game = {
     me.pool.register("deathEntity", game.DeathEntity);
     me.pool.register("triggerEntity", game.TriggerEntity);
     me.pool.register("groundObstacleEntity", game.GroundObstacleEntity);
+    me.pool.register("laserObstacleEntity", game.LaserObstacleEntity);
 
     me.input.bindKey(me.input.KEY.LEFT, 'left');
     me.input.bindKey(me.input.KEY.RIGHT, 'right');

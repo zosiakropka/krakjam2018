@@ -28,12 +28,13 @@ game.GroundObstacleEntity.getOnTrigger = function(self) {
         return;
       }
 
-      if (!self.body) {
-        return;
+      if (self.renderable) {
+        self.renderable.setCurrentAnimation('high');
       }
 
-      self.renderable.setCurrentAnimation('high');
-      self.body.collisionType = me.collision.types.ENEMY_OBJECT;
+      if (self.body) {
+        self.body.collisionType = me.collision.types.ENEMY_OBJECT;
+      }
     }, data.timeout || 0);
   };
-}
+};

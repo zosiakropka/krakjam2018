@@ -36,10 +36,12 @@ var game = {
     // add our player entity in the entity pool
     me.pool.register("player1Entity", game.PlayerEntity);
     me.pool.register("deathEntity", game.DeathEntity);
+    me.pool.register("triggerEntity", game.TriggerEntity);
+    me.pool.register("groundObstacleEntity", game.GroundObstacleEntity);
 
     me.input.bindKey(me.input.KEY.LEFT, 'left');
     me.input.bindKey(me.input.KEY.RIGHT, 'right');
-    me.input.bindKey(me.input.KEY.UP, 'jump');
+    me.input.bindKey(me.input.KEY.UP, 'jump', true);
     me.input.bindKey(me.input.KEY.DOWN, 'down');
 
     // Start the game.

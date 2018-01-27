@@ -16,13 +16,13 @@
   </object>
  </objectgroup>
  <objectgroup name="collision">
-  <object id="4" x="0" y="0" width="928" height="32"/>
-  <object id="8" x="0" y="0" width="32" height="960"/>
-  <object id="9" x="0" y="608" width="960" height="352"/>
+  <object id="4" type="boundaries" x="0" y="0" width="928" height="32"/>
+  <object id="8" type="boundaries" x="0" y="0" width="32" height="960"/>
+  <object id="9" type="boundaries" x="0" y="608" width="960" height="352"/>
+  <object id="16" type="boundaries" x="928" y="0" width="32" height="608"/>
   <object id="10" type="platform" x="320" y="512">
    <polyline points="0,0 384,0"/>
   </object>
-  <object id="16" x="928" y="0" width="32" height="608"/>
   <object id="12" name="me.LevelEntity" x="640" y="448" width="32" height="32">
    <properties>
     <property name="to" value="room1"/>

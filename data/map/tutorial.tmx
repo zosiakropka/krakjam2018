@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.0" tiledversion="1.1.1" orientation="orthogonal" renderorder="right-down" width="50" height="35" tilewidth="32" tileheight="32" infinite="0" backgroundcolor="#000000" nextobjectid="26">
+<map version="1.0" tiledversion="1.1.1" orientation="orthogonal" renderorder="right-down" width="50" height="35" tilewidth="32" tileheight="32" infinite="0" backgroundcolor="#000000" nextobjectid="28">
  <tileset firstgid="1" source="green_tiles.tsx"/>
  <tileset firstgid="4" source="tile_floor_walls.tsx"/>
  <tileset firstgid="20" source="wall_blue01.tsx"/>
@@ -46,6 +46,12 @@
     <property name="image" value="ground_obstacle"/>
    </properties>
   </object>
+  <object id="26" name="groundObstacleEntity" type="death" x="800" y="288" width="64" height="64">
+   <properties>
+    <property name="groundObstacleId" value="3"/>
+    <property name="image" value="ground_obstacle"/>
+   </properties>
+  </object>
  </objectgroup>
  <objectgroup color="#ff00f1" name="triggers">
   <object id="24" name="triggerEntity" type="trigger" x="640" y="384" width="32" height="320">
@@ -54,9 +60,15 @@
     <property name="eventName" value="groundObstacle"/>
    </properties>
   </object>
-  <object id="25" name="triggerEntity" type="trigger" x="768" y="544" width="160" height="32">
+  <object id="25" name="triggerEntity" type="trigger" x="768" y="576" width="160" height="32">
    <properties>
     <property name="eventData" value="json:{&quot;groundObstacleId&quot;: 2}"/>
+    <property name="eventName" value="groundObstacle"/>
+   </properties>
+  </object>
+  <object id="27" name="triggerEntity" type="trigger" x="768" y="384" width="160" height="32">
+   <properties>
+    <property name="eventData" value="json:{&quot;groundObstacleId&quot;: 3}"/>
     <property name="eventName" value="groundObstacle"/>
    </properties>
   </object>

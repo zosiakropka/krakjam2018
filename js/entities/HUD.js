@@ -22,6 +22,12 @@ game.HUD.Container = me.Container.extend({
 
         // add our child score object at the top left corner
         this.addChild(new game.HUD.ScoreItem(5, 5));
+    },
+
+    update: function() {
+        if (me.input.isKeyPressed('restart')) {
+          me.state.change(me.state.MENU);
+        }
     }
 });
 

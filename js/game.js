@@ -43,6 +43,7 @@ var game = {
     me.input.bindKey(me.input.KEY.RIGHT, 'right');
     me.input.bindKey(me.input.KEY.UP, 'jump', true);
     me.input.bindKey(me.input.KEY.DOWN, 'down');
+    me.input.bindKey(me.input.KEY.SPACE, 'restart', true);
 
     me.input.bindGamepad(0, {type:"axes", code: me.input.GAMEPAD.AXES.LX, threshold: -0.2}, me.input.KEY.LEFT);
     me.input.bindGamepad(0, {type:"axes", code: me.input.GAMEPAD.AXES.LX, threshold: 0.2}, me.input.KEY.RIGHT);
@@ -50,6 +51,6 @@ var game = {
     me.input.bindGamepad(0, {type: "buttons", code: me.input.GAMEPAD.BUTTONS.FACE_1}, me.input.KEY.DOWN);
 
     // Start the game.
-    me.state.change(me.state.PLAY);
+    me.state.change(me.state.MENU);
   }
 };

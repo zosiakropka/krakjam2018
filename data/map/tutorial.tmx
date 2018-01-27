@@ -34,13 +34,13 @@
   </object>
  </objectgroup>
  <objectgroup name="obstacles">
-  <object id="21" name="groundObstacleEntity" type="death" x="672" y="608" width="64" height="96">
+  <object id="21" name="groundObstacleEntity" type="death" x="672" y="640" width="64" height="64">
    <properties>
     <property name="groundObstacleId" value="1"/>
     <property name="image" value="ground_obstacle"/>
    </properties>
   </object>
-  <object id="23" name="groundObstacleEntity" type="death" x="800" y="608" width="64" height="96">
+  <object id="23" name="groundObstacleEntity" type="death" x="800" y="640" width="64" height="64">
    <properties>
     <property name="groundObstacleId" value="2"/>
     <property name="image" value="ground_obstacle"/>

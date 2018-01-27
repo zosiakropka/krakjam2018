@@ -2,7 +2,7 @@ game.EndScreen = me.ScreenObject.extend({
   onResetEvent: function() {
     var GameEndLayer = me.ColorLayer.extend({
       update: function() {
-        if (me.input.isKeyPressed('play')) {
+        if (me.input.isKeyPressed('restart')) {
           me.state.change(me.state.PLAY);
         }
       }

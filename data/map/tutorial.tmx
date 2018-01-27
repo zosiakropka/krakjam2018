@@ -22,7 +22,7 @@
   <object id="16" type="boundaries" x="672" y="0" width="32" height="608"/>
   <object id="12" name="me.LevelEntity" x="608" y="544" width="32" height="32">
    <properties>
-    <property name="to" value="room1"/>
+    <property name="to" value="house_of_doom"/>
    </properties>
   </object>
  </objectgroup>
@@ -41,15 +41,15 @@
   </object>
  </objectgroup>
  <objectgroup color="#ff00f1" name="triggers">
-  <object id="24" name="triggerEntity" x="224" y="32" width="32" height="576">
+  <object id="24" name="triggerEntity" type="trigger" x="224" y="32" width="32" height="576">
    <properties>
-    <property name="eventData" value="1"/>
+    <property name="eventData" value="json:{&quot;groundObstacleId&quot;: 1}"/>
     <property name="eventName" value="groundObstacle"/>
    </properties>
   </object>
   <object id="25" name="triggerEntity" type="trigger" x="352" y="448" width="128" height="32">
    <properties>
-    <property name="eventData" value="2"/>
+    <property name="eventData" value="json:{&quot;groundObstacleId&quot;: 2}"/>
     <property name="eventName" value="groundObstacle"/>
    </properties>
   </object>

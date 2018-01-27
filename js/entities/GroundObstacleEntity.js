@@ -22,17 +22,24 @@ game.GroundObstacleEntity = me.Entity.extend({
 });
 
 game.GroundObstacleEntity.getOnTrigger = function(self) {
-  return function(groundObstacleId) {
-    if (groundObstacleId !== self.groundObstacleId) {
-      return;
-    }
-
-    self.body.collisionType = me.collision.types.ENEMY_OBJECT;
-    self.renderable.setCurrentAnimation('mid');
+  return function(data) {
     me.timer.setTimeout(function() {
-      if (self.renderable) {
-        self.renderable.setCurrentAnimation('high');
+      var groundObstacleId = data.groundObstacleId;
+      if (groundObstacleId !== self.groundObstacleId) {
+        return;
       }
-    }, 500)
+
+      if (!self.body) {
+        return;
+      }
+
+      self.body.collisionType = me.collision.types.ENEMY_OBJECT;
+      self.renderable.setCurrentAnimation('mid');
+      me.timer.setTimeout(function() {
+        if (self.renderable) {
+          self.renderable.setCurrentAnimation('high');
+        }
+      }, 500)
+    }, data.timeout || 0);
   };
 }

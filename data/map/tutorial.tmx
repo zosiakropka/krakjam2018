@@ -8,10 +8,10 @@
   </data>
  </layer>
  <objectgroup color="#00ff21" name="player">
-  <object id="1" name="player1Entity" x="256" y="640" width="32" height="64">
+  <object id="1" name="player1Entity" x="256" y="576" width="64" height="128">
    <properties>
     <property name="anchorPoint" value="json:{&quot;x&quot;:0.5,&quot;y&quot;:0}"/>
-    <property name="frameWidth" type="int" value="32"/>
+    <property name="frameWidth" type="int" value="64"/>
     <property name="image" value="pink_man_walk"/>
    </properties>
   </object>

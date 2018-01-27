@@ -32,6 +32,7 @@ var game = {
   "loaded": function() {
     me.state.set(me.state.MENU, new game.TitleScreen());
     me.state.set(me.state.PLAY, new game.PlayScreen());
+    me.state.set(me.state.GAME_END, new game.EndScreen());
 
     // add our player entity in the entity pool
     me.pool.register("player1Entity", game.PlayerEntity);
@@ -39,6 +40,7 @@ var game = {
     me.pool.register("triggerEntity", game.TriggerEntity);
     me.pool.register("groundObstacleEntity", game.GroundObstacleEntity);
     me.pool.register("laserObstacleEntity", game.LaserObstacleEntity);
+    me.pool.register("infectorEntity", game.InfectorEntity);
 
     me.input.bindKey(me.input.KEY.LEFT, 'left');
     me.input.bindKey(me.input.KEY.RIGHT, 'right');

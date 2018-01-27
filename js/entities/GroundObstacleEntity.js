@@ -5,8 +5,7 @@ game.GroundObstacleEntity = me.Entity.extend({
     this._super(me.Entity, 'init', [x, y, settings]);
 
     this.renderable.addAnimation('low', [0]);
-    this.renderable.addAnimation('mid', [1, 2, 3]);
-    this.renderable.addAnimation('high', [4, 5, 6]);
+    this.renderable.addAnimation('high', [1, 2, 3, 4, 5, 6, 5, 4, 3, 2]);
 
     this.renderable.setCurrentAnimation('low');
 
@@ -33,13 +32,8 @@ game.GroundObstacleEntity.getOnTrigger = function(self) {
         return;
       }
 
+      self.renderable.setCurrentAnimation('high');
       self.body.collisionType = me.collision.types.ENEMY_OBJECT;
-      self.renderable.setCurrentAnimation('mid');
-      me.timer.setTimeout(function() {
-        if (self.renderable) {
-          self.renderable.setCurrentAnimation('high');
-        }
-      }, 500)
     }, data.timeout || 0);
   };
 }

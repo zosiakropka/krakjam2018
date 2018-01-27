@@ -116,7 +116,8 @@ game.PlayerEntity = me.Entity.extend({
             }
             self.body.setCollisionMask(me.collision.types.NO_OBJECT);
             me.game.world.removeChild(self);
-            me.levelDirector.reloadLevel();
+
+            me.event.publish('player:died');
           }, 500);
         }
         break;

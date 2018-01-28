@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.0" tiledversion="1.1.1" orientation="orthogonal" renderorder="right-down" width="84" height="64" tilewidth="32" tileheight="32" infinite="0" backgroundcolor="#000000" nextobjectid="106">
+<map version="1.0" tiledversion="1.1.0" orientation="orthogonal" renderorder="right-down" width="84" height="64" tilewidth="32" tileheight="32" infinite="0" backgroundcolor="#000000" nextobjectid="131">
  <tileset firstgid="1" source="tile_floor_walls.tsx"/>
  <tileset firstgid="37" source="wall_blue01.tsx"/>
  <tileset firstgid="67" source="bulbs.tsx"/>
@@ -179,11 +179,12 @@
     <property name="image" value="ground_obstacle"/>
    </properties>
   </object>
-  <object id="91" name="groundObstacleEntity" type="death" x="1792" y="384" width="256" height="256">
+  <object id="111" x="1792" y="384" width="256" height="256">
    <properties>
     <property name="groundObstacleId" type="int" value="8"/>
     <property name="image" value="obstacle _star2"/>
    </properties>
+   <ellipse/>
   </object>
  </objectgroup>
  <objectgroup color="#ff0006" name="ground_obstacles_floating">
@@ -217,36 +218,6 @@
     <property name="image" value="ground_obstacle"/>
    </properties>
   </object>
-  <object id="74" name="groundObstacleEntity" type="death" x="640" y="864" width="64" height="64">
-   <properties>
-    <property name="groundObstacleId" value="4"/>
-    <property name="image" value="obstacle_star"/>
-   </properties>
-  </object>
-  <object id="77" name="groundObstacleEntity" type="death" x="960" y="864" width="64" height="64">
-   <properties>
-    <property name="groundObstacleId" value="5"/>
-    <property name="image" value="obstacle_star"/>
-   </properties>
-  </object>
-  <object id="80" name="groundObstacleEntity" type="death" x="1312" y="640" width="64" height="64">
-   <properties>
-    <property name="groundObstacleId" value="6"/>
-    <property name="image" value="obstacle_star"/>
-   </properties>
-  </object>
-  <object id="84" name="groundObstacleEntity" type="death" x="1536" y="480" width="64" height="64">
-   <properties>
-    <property name="groundObstacleId" value="7"/>
-    <property name="image" value="obstacle_star"/>
-   </properties>
-  </object>
-  <object id="93" name="groundObstacleEntity" type="death" x="1792" y="256" width="64" height="64">
-   <properties>
-    <property name="groundObstacleId" value="9"/>
-    <property name="image" value="obstacle_star"/>
-   </properties>
-  </object>
   <object id="95" name="groundObstacleEntity" type="death" x="2144" y="640" width="64" height="64">
    <properties>
     <property name="groundObstacleId" value="10"/>
@@ -265,11 +236,47 @@
     <property name="image" value="ground_obstacle"/>
    </properties>
   </object>
-  <object id="103" name="groundObstacleEntity" type="death" x="2112" y="320" width="64" height="64">
+  <object id="112" name="groundObstacleEntity" type="death" x="640" y="864" width="64" height="64">
+   <properties>
+    <property name="groundObstacleId" value="4"/>
+    <property name="image" value="obstacle_star"/>
+   </properties>
+   <ellipse/>
+  </object>
+  <object id="118" name="groundObstacleEntity" type="death" x="960" y="864" width="64" height="64">
+   <properties>
+    <property name="groundObstacleId" value="5"/>
+    <property name="image" value="obstacle_star"/>
+   </properties>
+   <ellipse/>
+  </object>
+  <object id="124" name="groundObstacleEntity" type="death" x="1312" y="640" width="64" height="64">
+   <properties>
+    <property name="groundObstacleId" value="6"/>
+    <property name="image" value="obstacle_star"/>
+   </properties>
+   <ellipse/>
+  </object>
+  <object id="127" name="groundObstacleEntity" type="death" x="1536" y="480" width="64" height="64">
+   <properties>
+    <property name="groundObstacleId" value="7"/>
+    <property name="image" value="obstacle_star"/>
+   </properties>
+   <ellipse/>
+  </object>
+  <object id="129" name="groundObstacleEntity" type="death" x="2112" y="320" width="64" height="64">
    <properties>
     <property name="groundObstacleId" value="11"/>
     <property name="image" value="obstacle_star"/>
    </properties>
+   <ellipse/>
+  </object>
+  <object id="130" name="groundObstacleEntity" type="death" x="1792" y="256" width="64" height="64">
+   <properties>
+    <property name="groundObstacleId" value="9"/>
+    <property name="image" value="obstacle_star"/>
+   </properties>
+   <ellipse/>
   </object>
  </objectgroup>
  <objectgroup color="#ff5d6a" name="laser_obstacles">

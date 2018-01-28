@@ -46,12 +46,13 @@ var game = {
     me.input.bindKey(me.input.KEY.RIGHT, 'right');
     me.input.bindKey(me.input.KEY.UP, 'jump', true);
     me.input.bindKey(me.input.KEY.DOWN, 'down');
-    me.input.bindKey(me.input.KEY.SPACE, 'restart', true);
+    me.input.bindKey(me.input.KEY.ENTER, 'restart', true);
+    me.input.bindKey(me.input.KEY.SPACE, 'reload', true);
 
     me.input.bindGamepad(0, {type:"axes", code: me.input.GAMEPAD.AXES.LX, threshold: -0.2}, me.input.KEY.LEFT);
     me.input.bindGamepad(0, {type:"axes", code: me.input.GAMEPAD.AXES.LX, threshold: 0.2}, me.input.KEY.RIGHT);
     me.input.bindGamepad(0, {type: "buttons", code: me.input.GAMEPAD.BUTTONS.FACE_4}, me.input.KEY.UP);
-    me.input.bindGamepad(0, {type: "buttons", code: me.input.GAMEPAD.BUTTONS.FACE_1}, me.input.KEY.DOWN);
+    me.input.bindGamepad(0, {type: "buttons", code: me.input.GAMEPAD.BUTTONS.FACE_1}, me.input.KEY.SPACE);
 
     // Start the game.
     me.state.change(me.state.MENU);

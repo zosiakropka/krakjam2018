@@ -47,12 +47,6 @@ game.PlayScreen = me.ScreenObject.extend({
 game.PlayScreen.getOnPlayerDied = function(self) {
   return function() {
     me.game.world.addChild(self.deathImage);
-    me.timer.setTimeout(function() {
-      if (me.game.world.hasChild(self.deathImage)) {
-        me.game.world.removeChild(self.deathImage);
-      }
-      me.levelDirector.reloadLevel();
-    }, 1500);
   }
 }
 

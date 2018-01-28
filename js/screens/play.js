@@ -45,14 +45,19 @@ game.PlayScreen = me.ScreenObject.extend({
 });
 
 game.PlayScreen.getOnPlayerDied = function(self) {
+  var alreadyHandled = false;
   return function() {
+    if (alreadyHandled) {
+      return;
+    }
     me.game.world.addChild(self.deathImage);
     me.timer.setTimeout(function() {
       if (me.game.world.hasChild(self.deathImage)) {
         me.game.world.removeChild(self.deathImage);
       }
       me.levelDirector.reloadLevel();
-    }, 1500);
+    }, 500);
+    var alreadyHandled = true;
   }
 }
 

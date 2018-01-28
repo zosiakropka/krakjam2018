@@ -110,11 +110,12 @@ game.PlayerEntity = me.Entity.extend({
         if (other.type === 'death' && !this.dead) {
           var self = this;
           self.dead = true;
+          self.deadHandled = false;
           me.timer.setTimeout(function() {
-            if (!self.body) {
+            if (!self.body || self.deadHandled) {
               return;
             }
-            self.body.setCollisionMask(me.collision.types.NO_OBJECT);
+            deadHandled = true;
             me.game.world.removeChild(self);
 
             me.event.publish('player:died');

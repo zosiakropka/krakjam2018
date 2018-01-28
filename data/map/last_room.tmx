@@ -14,7 +14,6 @@
   <object id="17" name="infectorEntity" x="672" y="800" width="64" height="64">
    <properties>
     <property name="image" value="save"/>
-    <property name="to" value="room1"/>
    </properties>
   </object>
  </objectgroup>

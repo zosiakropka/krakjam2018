@@ -1,5 +1,6 @@
 game.EndScreen = me.ScreenObject.extend({
   onResetEvent: function() {
+    me.audio.playTrack('Sos-GlobalGameJam2018KeynoteOST-01AmazingThorsten');
     var GameEndLayer = me.ColorLayer.extend({
       update: function() {
         if (me.input.isKeyPressed('restart')) {
@@ -31,7 +32,9 @@ game.EndScreen = me.ScreenObject.extend({
   /**
    *  action to perform when leaving this screen (state change)
    */
-  onDestroyEvent: function() {}
+  onDestroyEvent: function() {
+    me.audio.stopTrack();
+  }
 });
 
 game.EndScreen.BACKGROUND_COLOR = '#000000';

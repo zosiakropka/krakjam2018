@@ -3,6 +3,7 @@ game.TitleScreen = me.ScreenObject.extend({
    *  action to perform on state change
    */
   onResetEvent: function() {
+    me.audio.playTrack('Sos-GlobalGameJam2018KeynoteOST-03Relax');
     me.levelDirector.loadLevel('menu');
 
     this.startButton = new game.Button(
@@ -24,6 +25,7 @@ game.TitleScreen = me.ScreenObject.extend({
    *  action to perform when leaving this screen (state change)
    */
   onDestroyEvent: function() {
+    me.audio.stopTrack();
     me.game.world.removeChild(this.startButton);
   }
 });

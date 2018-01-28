@@ -11,7 +11,7 @@ var game = {
   // Run on page load.
   "onload": function() {
     // Initialize the video.
-    if (!me.video.init(960, 640, {
+    if (!me.video.init(1280, 800, {
         wrapper: "screen",
         scale: "auto",
         scaleMethod: 'flex-width'

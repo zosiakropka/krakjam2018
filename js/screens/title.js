@@ -4,13 +4,17 @@ game.TitleScreen = me.ScreenObject.extend({
    */
   onResetEvent: function() {
     me.audio.playTrack('Sos-GlobalGameJam2018KeynoteOST-03Relax');
-    me.levelDirector.loadLevel('menu');
+
+    this.backgroundColorLayer = new me.ColorLayer(
+      'background',
+      game.TitleScreen.BACKGROUND_COLOR)
+    me.game.world.addChild(this.backgroundColorLayer, 1);
 
     this.startButton = new game.Button(
       me.game.viewport.width / 2,
       me.game.viewport.height / 2, {
-        width: 416,
-        height: 288,
+        width: 800,
+        height: 400,
         z: 4,
         image: 'startButton',
         onPress: function() {
@@ -27,5 +31,8 @@ game.TitleScreen = me.ScreenObject.extend({
   onDestroyEvent: function() {
     me.audio.stopTrack();
     me.game.world.removeChild(this.startButton);
+    me.game.world.removeChild(this.backgroundColorLayer);
   }
 });
+
+game.TitleScreen.BACKGROUND_COLOR = '#000';

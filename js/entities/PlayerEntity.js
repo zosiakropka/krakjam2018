@@ -12,10 +12,10 @@ game.PlayerEntity = me.Entity.extend({
     me.game.viewport.follow(this.pos, me.game.viewport.AXIS.BOTH);
     this.alwaysUpdate = true;
     this.body.setVelocity(3, 12);
-    this.renderable.addAnimation('walk', [0, 1]);
-    this.renderable.addAnimation('jump', [2, 3]);
-    this.renderable.addAnimation('stand', [4, 5]);
-    this.renderable.addAnimation('die', [6, 7]);
+    this.renderable.addAnimation('walk', [2, 3]);
+    this.renderable.addAnimation('jump', [4, 5]);
+    this.renderable.addAnimation('stand', [0, 1]);
+    this.renderable.addAnimation('die', [8, 9]);
 
     this.renderable.setCurrentAnimation('stand');
 

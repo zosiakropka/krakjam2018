@@ -57,12 +57,10 @@ game.PlayerEntity = me.Entity.extend({
       if (me.input.isKeyPressed('jump')) {
         this.body.vel.y += -(this.body.maxVel.y * this.multiJump++) * me.timer.tick
         this.body.jumping = true;
+      }
 
-        if (this.body.jumping) {
-          if (!this.renderable.isCurrentAnimation('jump')) {
-            this.renderable.setCurrentAnimation('jump');
-          }
-        }
+      if (this.body.jumping || this.body.falling) {
+        this.renderable.setCurrentAnimation('jump');
       }
 
       var isMoving = this.body.jumping || this.body.falling;

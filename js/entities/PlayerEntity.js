@@ -7,20 +7,27 @@ game.PlayerEntity = me.Entity.extend({
    * constructor
    */
   init: function(x, y, settings) {
+    var self = this;
     // call the constructor
     this._super(me.Entity, 'init', [x, y, settings]);
     me.game.viewport.follow(this.pos, me.game.viewport.AXIS.BOTH);
     this.alwaysUpdate = true;
     this.body.setVelocity(3, 12);
+    this.renderable.addAnimation('stand', [0, 1]);
     this.renderable.addAnimation('walk', [2, 3]);
     this.renderable.addAnimation('jump', [4, 5]);
-    this.renderable.addAnimation('stand', [0, 1]);
+    this.renderable.addAnimation('teleported', [7, 6]);
     this.renderable.addAnimation('die', [8, 9]);
 
-    this.renderable.setCurrentAnimation('stand');
+    this.renderable.setCurrentAnimation('teleported');
 
     this.dead = false;
     this.multiJump = 1;
+
+    this.justRendered = true;
+    me.timer.setTimeout(function() {
+      self.justRendered = false;
+    }, 500)
   },
 
   /**
@@ -49,8 +56,14 @@ game.PlayerEntity = me.Entity.extend({
         }
       } else {
         this.body.vel.x = 0;
-        if (!this.renderable.isCurrentAnimation('stand')) {
-          this.renderable.setCurrentAnimation('stand');
+        if (this.justRendered) {
+          if (!this.renderable.isCurrentAnimation('teleported')) {
+            this.renderable.setCurrentAnimation('teleported');
+          }
+        } else {
+          if (!this.renderable.isCurrentAnimation('stand')) {
+            this.renderable.setCurrentAnimation('stand');
+          }
         }
       }
 

@@ -27,4 +27,11 @@
    </properties>
   </object>
  </objectgroup>
+ <imagelayer name="noise">
+  <image source="noise"/>
+  <properties>
+   <property name="ratio" type="float" value="0.33"/>
+   <property name="z" type="int" value="1000"/>
+  </properties>
+ </imagelayer>
 </map>

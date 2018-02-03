@@ -15,6 +15,22 @@ game.InstructionScreen = me.ScreenObject.extend({
       0, 0, { image: 'noise_dark' });
     me.game.world.addChild(this.backgroundImageLayer, 2);
 
+    this.hackerImage = new game.Button(
+      me.game.viewport.width / 2,
+      me.game.viewport.height / 2, {
+        width: 1640,
+        height: 920,
+        z: 4,
+        image: 'hacker',
+        onPress: function() {
+          if (me.game.world.hasChild(this)) {
+            me.game.world.removeChild(this);
+          }
+          me.game.world.addChild(self.keyboardInstruction);
+        },
+        inputKey: 'continue'
+      });
+
     this.keyboardInstruction = new game.Button(
       me.game.viewport.width / 2,
       me.game.viewport.height / 2, {
@@ -45,7 +61,7 @@ game.InstructionScreen = me.ScreenObject.extend({
         inputKey: 'continue'
       });
 
-    me.game.world.addChild(this.keyboardInstruction);
+    me.game.world.addChild(this.hackerImage);
   },
 
   /**

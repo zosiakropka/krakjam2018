@@ -10,20 +10,20 @@ game.TitleScreen = me.ScreenObject.extend({
       game.TitleScreen.BACKGROUND_COLOR)
     me.game.world.addChild(this.backgroundColorLayer, 1);
 
-    this.startButton = new game.Button(
+    this.keyboardInstruction = new game.Button(
       me.game.viewport.width / 2,
       me.game.viewport.height / 2, {
         width: 708,
         height: 500,
         z: 4,
-        image: 'startButton',
+        image: 'keyboardInstruction',
         onPress: function() {
           me.levelDirector.loadLevel(game.PlayScreen.FIRST_LEVEL_ID);
           me.state.change(game.state.PLAY);
         },
         inputKey: 'continue'
       });
-    me.game.world.addChild(this.startButton);
+    me.game.world.addChild(this.keyboardInstruction);
   },
 
   /**
@@ -31,8 +31,8 @@ game.TitleScreen = me.ScreenObject.extend({
    */
   onDestroyEvent: function() {
     me.audio.stopTrack();
-    if (me.game.world.hasChild(this.startButton)) {
-      me.game.world.removeChild(this.startButton);
+    if (me.game.world.hasChild(this.keyboardInstruction)) {
+      me.game.world.removeChild(this.keyboardInstruction);
     }
     if (me.game.world.hasChild(this.backgroundColorLayer)) {
       me.game.world.removeChild(this.backgroundColorLayer);

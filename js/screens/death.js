@@ -2,7 +2,7 @@ game.DeathScreen = me.ScreenObject.extend({
   onResetEvent: function() {
     var DeathLayer = me.ImageLayer.extend({
         update: function() {
-          if (me.input.isKeyPressed('reload')) {
+          if (me.input.isKeyPressed('continue')) {
             me.state.change(game.state.PLAY);
           }
         }

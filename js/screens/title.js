@@ -21,7 +21,7 @@ game.TitleScreen = me.ScreenObject.extend({
           me.levelDirector.loadLevel(game.PlayScreen.FIRST_LEVEL_ID);
           me.state.change(game.state.PLAY);
         },
-        inputKey: 'reload'
+        inputKey: 'continue'
       });
     me.game.world.addChild(this.startButton);
   },

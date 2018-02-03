@@ -3,7 +3,7 @@ game.EndScreen = me.ScreenObject.extend({
     me.audio.playTrack('Sos-GlobalGameJam2018KeynoteOST-01AmazingThorsten');
     var GameEndLayer = me.ColorLayer.extend({
       update: function() {
-        if (me.input.isKeyPressed('reload')) {
+        if (me.input.isKeyPressed('continue')) {
           me.state.change(game.state.MENU);
         }
       }
@@ -24,7 +24,7 @@ game.EndScreen = me.ScreenObject.extend({
         onPress: function() {
           me.state.change(game.state.PLAY);
         },
-        inputKey: 'reload'
+        inputKey: 'continue'
       });
     me.game.world.addChild(this.startButton);
   },

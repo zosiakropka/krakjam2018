@@ -4,6 +4,8 @@ game.DeathScreen = me.ScreenObject.extend({
         update: function() {
           if (me.input.isKeyPressed('continue')) {
             me.state.change(game.state.PLAY);
+          } else if (me.input.isKeyPressed('restart')) {
+            me.state.change(game.state.MENU);
           }
         }
     });

@@ -17,8 +17,11 @@ game.LaserObstacleEntity = me.Entity.extend({
       destroy: function () {},
       draw: function (renderer) {
         var previousColor = renderer.getColor(); // backup original renderer color
+
         renderer.setColor(game.LaserObstacleEntity.COLOR);
+        renderer.setLineWidth(3);
         renderer.strokeLine(self.shape[0].x, self.shape[0].y, self.shape[1].x, self.shape[1].y);
+
         renderer.setColor(previousColor); // reset to original
       }
     }));
@@ -27,4 +30,4 @@ game.LaserObstacleEntity = me.Entity.extend({
   }
 });
 
-game.LaserObstacleEntity.COLOR = '#5EFF7E';
+game.LaserObstacleEntity.COLOR = '#FF2008';

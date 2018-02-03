@@ -54,6 +54,7 @@ var game = {
     me.input.bindGamepad(0, {type:"axes", code: me.input.GAMEPAD.AXES.LX, threshold: 0.2}, me.input.KEY.RIGHT);
     me.input.bindGamepad(0, {type: "buttons", code: me.input.GAMEPAD.BUTTONS.FACE_4}, me.input.KEY.UP);
     me.input.bindGamepad(0, {type: "buttons", code: me.input.GAMEPAD.BUTTONS.FACE_1}, me.input.KEY.SPACE);
+    me.input.bindGamepad(0, {type: "buttons", code: me.input.GAMEPAD.BUTTONS.START}, me.input.KEY.ESC);
 
     // Start the game.
     me.state.change(game.state.MENU);

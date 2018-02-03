@@ -1,6 +1,9 @@
 game.EndScreen = me.ScreenObject.extend({
   onResetEvent: function() {
-    me.audio.playTrack('Sos-GlobalGameJam2018KeynoteOST-01AmazingThorsten');
+    if (me.audio.getCurrentTrack() !== game.audio.END) {
+      me.audio.getCurrentTrack() && me.audio.stopTrack();
+      me.audio.playTrack(game.audio.track.END);
+    }
     var GameEndLayer = me.ColorLayer.extend({
       update: function() {
         if (me.input.isKeyPressed('continue')) {
@@ -33,7 +36,6 @@ game.EndScreen = me.ScreenObject.extend({
    *  action to perform when leaving this screen (state change)
    */
   onDestroyEvent: function() {
-    me.audio.stopTrack();
   }
 });
 

@@ -47,7 +47,7 @@ var game = {
     me.input.bindKey(me.input.KEY.RIGHT, 'right');
     me.input.bindKey(me.input.KEY.UP, 'jump', true);
     me.input.bindKey(me.input.KEY.DOWN, 'down');
-    me.input.bindKey(me.input.KEY.ENTER, 'restart', true);
+    me.input.bindKey(me.input.KEY.ESC, 'restart', true);
     me.input.bindKey(me.input.KEY.SPACE, 'reload', true);
 
     me.input.bindGamepad(0, {type:"axes", code: me.input.GAMEPAD.AXES.LX, threshold: -0.2}, me.input.KEY.LEFT);

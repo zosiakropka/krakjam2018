@@ -67,7 +67,7 @@ game.PlayerEntity = me.Entity.extend({
         }
       }
 
-      if (me.input.isKeyPressed('jump')) {
+      if (me.input.isKeyPressed('jump') || me.input.isKeyPressed('continue')) {
         this.body.vel.y += -(this.body.maxVel.y * this.multiJump++) * me.timer.tick
         this.body.jumping = true;
       }

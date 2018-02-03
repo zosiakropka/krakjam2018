@@ -5,7 +5,7 @@ game.DeathScreen = me.ScreenObject.extend({
           if (me.input.isKeyPressed('continue')) {
             me.state.change(game.state.PLAY);
           } else if (me.input.isKeyPressed('restart')) {
-            me.state.change(game.state.MENU);
+            me.state.change(game.state.KEYBOARD_TUTORIAL);
           }
         }
     });

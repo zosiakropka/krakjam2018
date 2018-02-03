@@ -26,7 +26,7 @@ game.HUD.Container = me.Container.extend({
 
     update: function() {
         if (me.input.isKeyPressed('restart')) {
-          me.state.change(game.state.MENU);
+          me.state.change(game.state.KEYBOARD_TUTORIAL);
         }
     }
 });

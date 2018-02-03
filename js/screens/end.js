@@ -4,7 +4,7 @@ game.EndScreen = me.ScreenObject.extend({
     var GameEndLayer = me.ColorLayer.extend({
       update: function() {
         if (me.input.isKeyPressed('continue')) {
-          me.state.change(game.state.MENU);
+          me.state.change(game.state.KEYBOARD_TUTORIAL);
         }
       }
     });

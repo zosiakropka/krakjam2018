@@ -30,7 +30,7 @@ var game = {
 
   // Run on game resources loaded.
   "loaded": function() {
-    me.state.set(game.state.MENU, new game.TitleScreen());
+    me.state.set(game.state.KEYBOARD_TUTORIAL, new game.TitleScreen());
     me.state.set(game.state.PLAY, new game.PlayScreen());
     me.state.set(game.state.DEATH, new game.DeathScreen());
     me.state.set(game.state.GAME_END, new game.EndScreen());
@@ -57,6 +57,6 @@ var game = {
     me.input.bindGamepad(0, {type: "buttons", code: me.input.GAMEPAD.BUTTONS.START}, me.input.KEY.ESC);
 
     // Start the game.
-    me.state.change(game.state.MENU);
+    me.state.change(game.state.KEYBOARD_TUTORIAL);
   }
 };

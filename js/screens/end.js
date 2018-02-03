@@ -14,7 +14,7 @@ game.EndScreen = me.ScreenObject.extend({
         'background',
         game.EndScreen.BACKGROUND_COLOR), 1);
 
-    this.startButton = new me.GUI_Object(
+    this.targetInfectedImage = new me.GUI_Object(
       me.game.viewport.width / 2,
       me.game.viewport.height / 2, {
         width: 600,
@@ -26,7 +26,7 @@ game.EndScreen = me.ScreenObject.extend({
         },
         inputKey: 'continue'
       });
-    me.game.world.addChild(this.startButton);
+    me.game.world.addChild(this.targetInfectedImage);
   },
 
   /**

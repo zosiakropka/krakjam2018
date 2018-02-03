@@ -26,9 +26,7 @@ game.HUD.Container = me.Container.extend({
 
     update: function() {
         if (me.input.isKeyPressed('restart')) {
-          me.state.change(me.state.MENU);
-        } else if (me.input.isKeyPressed('reload')) {
-          me.levelDirector.reloadLevel();
+          me.state.change(game.state.MENU);
         }
     }
 });

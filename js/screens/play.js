@@ -4,7 +4,7 @@ game.PlayScreen = me.ScreenObject.extend({
    */
   onResetEvent: function() {
     me.audio.playTrack('Sos-GlobalGameJam2018KeynoteOST-06Love');
-    me.levelDirector.loadLevel('tutorial');
+    me.levelDirector.reloadLevel();
     this.onPlayerDied = game.PlayScreen.getOnPlayerDied(this);
 
     // reset the score
@@ -14,23 +14,6 @@ game.PlayScreen = me.ScreenObject.extend({
     // Can also be forced by specifying a "Infinity" z value to the addChild function.
     this.HUD = new game.HUD.Container();
     me.game.world.addChild(this.HUD);
-
-    var xCenter = me.game.viewport.width / 2;
-    var yCenter = me.game.viewport.height / 2;
-
-    this.deathImage = new me.ImageLayer(
-      0,
-      0, {
-        floating: true,
-        alwaysUpdate: true,
-        anchorPoint: {
-          x: 0.5, y: 0.5
-        },
-        width: game.PlayScreen.DEATH_IMAGE_WIDTH,
-        height: game.PlayScreen.DEATH_IMAGE_HEIGHT,
-        image: 'death'
-      });
-      // me.game.world.addChild(this.deathImage);
   },
 
   /**
@@ -46,9 +29,11 @@ game.PlayScreen = me.ScreenObject.extend({
 
 game.PlayScreen.getOnPlayerDied = function(self) {
   return function() {
-    me.game.world.addChild(self.deathImage);
+    me.state.change(game.state.DEATH);
   }
 }
 
 game.PlayScreen.DEATH_IMAGE_WIDTH = 600;
 game.PlayScreen.DEATH_IMAGE_HEIGHT = 400;
+
+game.PlayScreen.FIRST_LEVEL_ID = 'tutorial';

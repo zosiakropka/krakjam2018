@@ -30,9 +30,10 @@ var game = {
 
   // Run on game resources loaded.
   "loaded": function() {
-    me.state.set(me.state.MENU, new game.TitleScreen());
-    me.state.set(me.state.PLAY, new game.PlayScreen());
-    me.state.set(me.state.GAME_END, new game.EndScreen());
+    me.state.set(game.state.MENU, new game.TitleScreen());
+    me.state.set(game.state.PLAY, new game.PlayScreen());
+    me.state.set(game.state.DEATH, new game.DeathScreen());
+    me.state.set(game.state.GAME_END, new game.EndScreen());
 
     // add our player entity in the entity pool
     me.pool.register("player1Entity", game.PlayerEntity);
@@ -55,6 +56,6 @@ var game = {
     me.input.bindGamepad(0, {type: "buttons", code: me.input.GAMEPAD.BUTTONS.FACE_1}, me.input.KEY.SPACE);
 
     // Start the game.
-    me.state.change(me.state.MENU);
+    me.state.change(game.state.MENU);
   }
 };

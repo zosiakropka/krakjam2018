@@ -4,7 +4,8 @@ game.EndScreen = me.ScreenObject.extend({
     var GameEndLayer = me.ColorLayer.extend({
       update: function() {
         if (me.input.isKeyPressed('restart')) {
-          me.state.change(me.state.PLAY);
+          me.levelDirector.loadLevel(game.PlayScreen.FIRST_LEVEL_ID);
+          me.state.change(game.state.PLAY);
         }
       }
     });
@@ -22,7 +23,7 @@ game.EndScreen = me.ScreenObject.extend({
         z: 4,
         image: 'target_infected',
         onPress: function() {
-          me.state.change(me.state.PLAY);
+          me.state.change(game.state.PLAY);
         },
         inputKey: 'restart'
       });

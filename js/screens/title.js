@@ -3,6 +3,8 @@ game.TitleScreen = me.ScreenObject.extend({
    *  action to perform on state change
    */
   onResetEvent: function() {
+    me.levelDirector.loadLevel(game.PlayScreen.FIRST_LEVEL_ID);
+
     me.audio.playTrack('Sos-GlobalGameJam2018KeynoteOST-03Relax');
 
     this.backgroundColorLayer = new me.ColorLayer(
@@ -18,7 +20,7 @@ game.TitleScreen = me.ScreenObject.extend({
         z: 4,
         image: 'startButton',
         onPress: function() {
-          me.state.change(me.state.PLAY);
+          me.state.change(game.state.PLAY);
         },
         inputKey: 'restart'
       });
@@ -30,8 +32,12 @@ game.TitleScreen = me.ScreenObject.extend({
    */
   onDestroyEvent: function() {
     me.audio.stopTrack();
-    me.game.world.removeChild(this.startButton);
-    me.game.world.removeChild(this.backgroundColorLayer);
+    if (me.game.world.hasChild(this.startButton)) {
+      me.game.world.removeChild(this.startButton);
+    }
+    if (me.game.world.hasChild(this.backgroundColorLayer)) {
+      me.game.world.removeChild(this.backgroundColorLayer);
+    }
   }
 });
 

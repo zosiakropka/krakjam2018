@@ -36,4 +36,4 @@ game.PlayScreen.getOnPlayerDied = function(self) {
 game.PlayScreen.DEATH_IMAGE_WIDTH = 600;
 game.PlayScreen.DEATH_IMAGE_HEIGHT = 400;
 
-game.PlayScreen.FIRST_LEVEL_ID = 'tutorial';
+game.PlayScreen.FIRST_LEVEL_ID = '01_tutorial_jump_up';

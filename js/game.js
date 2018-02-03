@@ -30,7 +30,7 @@ var game = {
 
   // Run on game resources loaded.
   "loaded": function() {
-    me.state.set(game.state.KEYBOARD_TUTORIAL, new game.TitleScreen());
+    me.state.set(game.state.KEYBOARD_TUTORIAL, new game.InstructionScreen());
     me.state.set(game.state.PLAY, new game.PlayScreen());
     me.state.set(game.state.DEATH, new game.DeathScreen());
     me.state.set(game.state.GAME_END, new game.EndScreen());

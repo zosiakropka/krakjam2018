@@ -3,7 +3,10 @@ game.PlayScreen = me.ScreenObject.extend({
    *  action to perform on state change
    */
   onResetEvent: function() {
-    me.audio.playTrack('Sos-GlobalGameJam2018KeynoteOST-06Love');
+    if (me.audio.getCurrentTrack() !== game.audio.PLAY) {
+      me.audio.getCurrentTrack() && me.audio.stopTrack();
+      me.audio.playTrack(game.audio.track.PLAY);
+    }
     me.levelDirector.reloadLevel();
     this.onPlayerDied = game.PlayScreen.getOnPlayerDied(this);
 
@@ -20,7 +23,6 @@ game.PlayScreen = me.ScreenObject.extend({
    *  action to perform when leaving this screen (state change)
    */
   onDestroyEvent: function() {
-    me.audio.stopTrack();
     // remove the HUD from the game world
     me.game.world.removeChild(this.HUD);
     me.event.unsubscribe('player:died', this.onPlayerDied);

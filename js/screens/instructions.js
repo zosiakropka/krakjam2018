@@ -4,7 +4,10 @@ game.InstructionScreen = me.ScreenObject.extend({
    */
   onResetEvent: function() {
     var self = this;
-    me.audio.playTrack('Sos-GlobalGameJam2018KeynoteOST-03Relax');
+    if (me.audio.getCurrentTrack() !== game.audio.INSTRUCTIONS) {
+      me.audio.getCurrentTrack() && me.audio.stopTrack();
+      me.audio.playTrack(game.audio.track.INSTRUCTIONS);
+    }
 
     this.backgroundColorLayer = new me.ColorLayer(
       'background',

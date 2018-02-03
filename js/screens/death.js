@@ -11,8 +11,7 @@ game.DeathScreen = me.ScreenObject.extend({
     });
 
     this.deathImage = new DeathLayer(
-      0,
-      0, {
+      0, 0, {
         floating: true,
         alwaysUpdate: true,
         anchorPoint: {

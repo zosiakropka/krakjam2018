@@ -1,14 +1,19 @@
-game.TitleScreen = me.ScreenObject.extend({
+game.InstructionScreen = me.ScreenObject.extend({
   /**
    *  action to perform on state change
    */
   onResetEvent: function() {
+    var self = this;
     me.audio.playTrack('Sos-GlobalGameJam2018KeynoteOST-03Relax');
 
     this.backgroundColorLayer = new me.ColorLayer(
       'background',
-      game.TitleScreen.BACKGROUND_COLOR)
+      game.InstructionScreen.BACKGROUND_COLOR)
     me.game.world.addChild(this.backgroundColorLayer, 1);
+
+    this.backgroundImageLayer = new me.ImageLayer(
+      0, 0, { image: 'noise_dark' });
+    me.game.world.addChild(this.backgroundImageLayer, 2);
 
     this.keyboardInstruction = new game.Button(
       me.game.viewport.width / 2,
@@ -18,11 +23,28 @@ game.TitleScreen = me.ScreenObject.extend({
         z: 4,
         image: 'keyboardInstruction',
         onPress: function() {
+          if (me.game.world.hasChild(self.keyboardInstruction)) {
+            me.game.world.removeChild(self.keyboardInstruction);
+          }
+          me.game.world.addChild(self.padInstruction);
+        },
+        inputKey: 'continue'
+      });
+
+    this.padInstruction = new game.Button(
+      me.game.viewport.width / 2,
+      me.game.viewport.height / 2, {
+        width: 633,
+        height: 535,
+        z: 4,
+        image: 'padInstruction',
+        onPress: function() {
           me.levelDirector.loadLevel(game.PlayScreen.FIRST_LEVEL_ID);
           me.state.change(game.state.PLAY);
         },
         inputKey: 'continue'
       });
+
     me.game.world.addChild(this.keyboardInstruction);
   },
 
@@ -34,10 +56,16 @@ game.TitleScreen = me.ScreenObject.extend({
     if (me.game.world.hasChild(this.keyboardInstruction)) {
       me.game.world.removeChild(this.keyboardInstruction);
     }
+    if (me.game.world.hasChild(this.padInstruction)) {
+      me.game.world.removeChild(this.padInstruction);
+    }
     if (me.game.world.hasChild(this.backgroundColorLayer)) {
       me.game.world.removeChild(this.backgroundColorLayer);
+    }
+    if (me.game.world.hasChild(this.backgroundImageLayer)) {
+      me.game.world.removeChild(this.backgroundImageLayer);
     }
   }
 });
 
-game.TitleScreen.BACKGROUND_COLOR = '#000';
+game.InstructionScreen.BACKGROUND_COLOR = '#a20f94';

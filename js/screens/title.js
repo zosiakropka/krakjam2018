@@ -13,8 +13,8 @@ game.TitleScreen = me.ScreenObject.extend({
     this.startButton = new game.Button(
       me.game.viewport.width / 2,
       me.game.viewport.height / 2, {
-        width: 800,
-        height: 400,
+        width: 708,
+        height: 500,
         z: 4,
         image: 'startButton',
         onPress: function() {

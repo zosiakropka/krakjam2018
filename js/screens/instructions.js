@@ -23,8 +23,8 @@ game.InstructionScreen = me.ScreenObject.extend({
         z: 4,
         image: 'keyboardInstruction',
         onPress: function() {
-          if (me.game.world.hasChild(self.keyboardInstruction)) {
-            me.game.world.removeChild(self.keyboardInstruction);
+          if (me.game.world.hasChild(this)) {
+            me.game.world.removeChild(this);
           }
           me.game.world.addChild(self.padInstruction);
         },
